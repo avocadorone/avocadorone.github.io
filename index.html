@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+ 
+
+
+
+
+</script>
+
+
+</head>
+<body class=bg_test>希望の人数をお選びください。
+  <style type="text/css">
+    .cp_ipselect {
+      position: relative;
+      width: 100%;
+      margin: 2em auto;
+      text-align: center;
+    }
+    .genre {
+      position: relative;
+      font-family: inherit;
+      background-color: transparent;
+      width: 100%;
+      padding: 10px 10px 10px 0;
+      font-size: 25px;
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid rgba(0,0,0, 0.3);
+    }
+    .genre:focus {
+      outline: none;
+      border-bottom: 1px solid rgba(0,0,0, 0);
+    }
+    .cp_ipselect .genre {
+      appearance: none;
+      -webkit-appearance:none
+    }
+    .cp_ipselect select::-ms-expand {
+      display: none;
+    }
+    .cp_ipselect:after {
+      position: absolute;
+      top: 18px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      padding: 0;
+      content: '';
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid rgba(255, 255, 255, 0.3);
+      pointer-events: none;
+    }
+    .genre_selectlabel {
+      color: rgba(255, 255, 255, 0.836);
+      font-size: 18px;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: 10px;
+      transition: 0.2s ease all;
+    }
+    .genre:focus ~ .genre_selectlabel, .genre:valid ~ .genre_selectlabel {
+      color: #ffffffd0;
+      top: -20px;
+      transition: 0.2s ease all;
+      font-size: 14px;
+    }
+    .genre_selectbar {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+    .genre_selectbar:before, .genre_selectbar:after {
+      content: '';
+      height: 2px;
+      width: 0;
+      bottom: 1px;
+      position: absolute;
+      background: #05050579;
+      transition: 0.2s ease all;
+    }
+    .genre_selectbar:before {
+      left: 50%;
+    }
+    .genre_selectbar:after {
+      right: 50%;
+    }
+    .genre:focus ~ .genre_selectbar:before, .genre:focus ~ .genre_selectbar:after {
+      width: 50%;
+    }
+    .genre_highlight {
+      position: absolute;
+      top: 25%;
+      left: 0;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+
+    .bg_test-text{
+        border:  solid 1px;                             /* 枠線指定 */
+        display:  inline-block;                         /* インラインブロックにする */
+        padding: 10px 20px;                             /* 余白指定 */
+        background-color: rgba(255, 255, 255, 0.7);     /* 背景色指定 */
+    }
+    .bg_test {
+        color: rgba(255, 255, 255, 0.89);
+        font-size: 25px;
+        text-align:  center;    /* 文字中央寄せ */
+        padding:  150px;        /* 余白指定 */
+        border: solid 2px;      /* 枠線指定 */
+        background-image: url("https://www.fukulabo.net/images/A00006124.jpg?1464757560");
+        background-repeat: no-repeat;  /* 背景画像指定 */
+        background-position: center;
+        background-size: contain;
+    }
+
+   
+
+    .genre{
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .mes{
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .menuList{
+        color: aqua;
+        font-size:large;
+
+
+    }
+    
+  
+  </style>
+
+  
+ <script type="text/javascript">
+  const foodMenu = 
+    { "kazu1": ["パワフル", "ノーマル", "ふんわり"],
+      "kazu2": ["共通の知人", "私の友達", "あんたの友達"],
+      "kazu3": ["共通の知人", "私の友達とあんたの友達"],
+      "kazu4": ["そこら辺の人", "私たちの子供たち", "じらしたいだけよ"],
+      "kazu5": ["あんた好きじゃない", "あなた好きだけど忙しい", "あんた何とも思ってない"],
+    };
+
+
+  function createMenu(selectGenre){
+  
+  let menuList = document.getElementById('menuList');
+  menuList.disabled = false;
+  menuList.innerHTML = '';
+  let option = document.createElement('option');
+  option.innerHTML = 'パターンを選択してください';
+  option.defaultSelected = true;
+  option.disabled = true;
+  menuList.appendChild(option);  
+  
+  foodMenu[selectGenre].forEach( menu => {
+      let option = document.createElement('option');
+      option.innerHTML = menu;
+      menuList.appendChild(option);  
+  });    
+  }
+
+
+</script> 
+    
+  <div class="cp_ipselect">
+      <select name="genre" id="genre" onchange="createMenu(this.value)" class="genre">
+            <option disabled selected>人数を選択してください</option>
+            <option value="kazu1">2人</option>
+            <option value="kazu2">3人</option>
+            <option value="kazu3">4人</option>
+            <option value="kazu4">もっと</option>
+            <option value="kazu5">そもそも行きたくない</option>
+        </select>
+        <span class="genre_highlight"></span>
+        <span class="genre_selectbar"></span>
+        <label class="genre_selectlabel">人数</label>
+    </div>
+    <div>
+        <select name="menuList" id="menuList" disabled >
+            <option disabled selected>パターンを選択してください</option>
+        </select>
+    </div>  
+</body>
+
+
+
+
+
+
+
+</html>
+        
