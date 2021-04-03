@@ -5,9 +5,7 @@
 <title>POST_SAMPLE</title>
 </head>
 <body>
-<?php
-	echo "デートと言えば「".$_POST["data"] ."」です。";
-?>
-</form>
+ありがとうございました！
+あなたをダウンロードちゅう！
 </body>
 </html>
