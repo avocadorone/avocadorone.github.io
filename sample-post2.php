@@ -5,7 +5,8 @@
 <title>POST_SAMPLE</title>
 </head>
 <body>
-ありがとうございました！
-あなたをダウンロードちゅう！
+<div>ありがとうございました！
+      あなたをダウンロードちゅう！
+  </div>
 </body>
 </html>
